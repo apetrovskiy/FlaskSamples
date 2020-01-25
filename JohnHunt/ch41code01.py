@@ -50,6 +50,9 @@ bookshop = Bookshop(
 
 
 def create_bookshop_service():
+    CREATED = 201
+    BAD_REQUEST = 400
+
     app = Flask(__name__)
     app.json_encoder = BookJSONEncoder
 
@@ -66,7 +69,7 @@ def create_bookshop_service():
     def create_book():
         print('create book')
         if not request.json or 'isbn' not in request.json:
-            abort(400)
+            abort(BAD_REQUEST)
         book = Book(int(request.json['isbn']),
                     # request.json['isbn'],
                     request.json['title'],
@@ -76,7 +79,7 @@ def create_bookshop_service():
         # return jsonify({'book': book}), 201
         new_book = list(filter(lambda b: b.isbn == book.isbn,
                                bookshop.books))[0]
-        return jsonify({'book': new_book}), 201
+        return jsonify({'book': new_book}), CREATED
 
     # curl -H "Content-Type: application/json" -X POST
     # -d '{"title":"Read a book", "author":"Bob",
@@ -86,7 +89,7 @@ def create_bookshop_service():
     @app.route('/book', methods=['PUT'])
     def update_book():
         if not request.json or 'isbn' not in request.json:
-            abort(400)
+            abort(BAD_REQUEST)
         # isbn = request.json['isbn']
         isbn = int(request.json['isbn'])
         book = bookshop.get(isbn)
@@ -96,7 +99,7 @@ def create_bookshop_service():
         # return jsonify({'book': book}), 201
         new_book = list(filter(lambda b: b.isbn == book.isbn,
                                bookshop.books))[0]
-        return jsonify({'book': new_book}), 201
+        return jsonify({'book': new_book}), CREATED
 
     # curl -H "Content-Type: application/json" -X PUT
     # -d '{"title":"Read a Python book", "author":"Bob Jones",
@@ -110,9 +113,9 @@ def create_bookshop_service():
 
     # curl http://localhost:5000/book/2 -X DELETE
 
-    @app.errorhandler(400)
+    @app.errorhandler(BAD_REQUEST)
     def not_found(error):
-        return make_response(jsonify({'book': 'Not found'}), 400)
+        return make_response(jsonify({'book': 'Not found'}), BAD_REQUEST)
 
     return app
 
