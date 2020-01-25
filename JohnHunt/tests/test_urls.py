@@ -10,38 +10,32 @@ class TestURLs(unittest.TestCase):
         result = self.app.get('/book/list')
         assert result.status_code == 200
 
-        '''
-
-    def delete_book(self, isbn):
-        self.books = list(filter(lambda b: b.isbn != isbn, self.books))
-        '''
-
     def test_get_book(self):
         result = self.app.get('/book/2')
         assert result.status_code == 200
 
     def test_get_no_book(self):
-        result = self.app.get('/book/5')
+        result = self.app.get('/book/1000')
         assert result.status_code == 404
 
     def test_add_book(self):
         result = self.app.post('/book', json={
-        'isbn': 8, 'title': 'title001', 'author': 'author001', 'price': 22.33})
+            'isbn': 8, 'title': 'title001',
+            'author': 'author001', 'price': 22.33})
         assert result.status_code == 201
 
     def test_delete_book(self):
         res = self.app.post('/book', json={
-        'isbn': 9, 'title': 'title001', 'author': 'author001', 'price': 22.33})
-        print(res.status_code)
+            'isbn': 9, 'title': 'title002',
+            'author': 'author002', 'price': 33.22})
         assert res.status_code == 201
         result = self.app.delete('/book/' + str(9))
-        print(result.status_code)
         assert result.status_code == 200
 
     def test_no_delete_book(self):
         result = self.app.delete('/book/' + str(1000))
-        print(result.status_code)
         assert result.status_code == 200
+
 
 if __name__ == '__main__':
     unittest.main()
