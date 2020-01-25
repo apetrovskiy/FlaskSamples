@@ -7,4 +7,5 @@ app = Flask(__name__)
 def welcome():
     return jsonify({'msg': 'Hello Flask World'})
 
+
 app.run(debug=True)
