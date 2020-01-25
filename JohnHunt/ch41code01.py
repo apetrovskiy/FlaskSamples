@@ -11,14 +11,6 @@ class Book:
 
     def __str__(self):
         return self.title + ' by ' + self.author + ' @ ' + str(self.price)
-    '''
-    def to_json(self):
-        return {
-            'isbn': self.isbn,
-            'title': self.title,
-            'author': self.author,
-            'price': self.price
-        }'''
 
 
 class BookJSONEncoder(JSONEncoder):
@@ -48,6 +40,7 @@ class Bookshop:
 
     def delete_book(self, isbn):
         self.books = list(filter(lambda b: b.isbn != isbn, self.books))
+
 
 bookshop = Bookshop(
     [Book(1, 'XML', 'Gryff Smith', 10.99),
@@ -123,6 +116,7 @@ def create_bookshop_service():
 
     return app
 
+
+flask_app = create_bookshop_service()
 if __name__ == '__main__':
-    app = create_bookshop_service()
-    app.run(debug=True)
+    flask_app.run(debug=True)
