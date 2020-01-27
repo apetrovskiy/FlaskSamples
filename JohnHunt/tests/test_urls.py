@@ -6,8 +6,9 @@ from ..ch41code01 import create_bookshop_service
 
 
 class TestURLs(StatusCodes):
-    def get_random_isbn(self):
-        return randint(100, 1000)
+    @staticmethod
+    def get_random_isbn():
+        return randint(100, 10000)
 
     def setUp(self):
         self.app = create_bookshop_service().test_client()
