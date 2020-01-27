@@ -81,10 +81,11 @@ def create_bookshop_service():
                                bookshop.books))[0]
         return jsonify({'book': new_book}), CREATED
 
-    # curl -H "Content-Type: application/json" -X POST
-    # -d '{"title":"Read a book", "author":"Bob",
-    # "isbn":"5", "price":"3.44"}'
-    # http://localhost:5000/book
+    '''
+    curl -H "Content-Type: application/json" -X POST -d
+    '{"title":"Read a book", "author":"Bob", "isbn":"5", "price":"3.44"}'
+    http://localhost:5000/book
+    '''
 
     @app.route('/book', methods=['PUT'])
     def update_book():
@@ -101,10 +102,12 @@ def create_bookshop_service():
                                bookshop.books))[0]
         return jsonify({'book': new_book}), CREATED
 
-    # curl -H "Content-Type: application/json" -X PUT
-    # -d '{"title":"Read a Python book", "author":"Bob Jones",
-    # "isbn":"5", "price":"3.44"}'
-    # http://localhost:5000/book
+    '''
+    curl -H "Content-Type: application/json" -X PUT -d
+    '{"title":"Read a Python book", "author":"Bob Jones",
+    "isbn":"5", "price":"3.44"}'
+    http://localhost:5000/book
+    '''
 
     @app.route('/book/<int:isbn>', methods=['DELETE'])
     def delete_book(isbn):
