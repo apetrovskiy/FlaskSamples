@@ -1,17 +1,11 @@
-#### TESTING-RELATED PACKAGES ####
-
-# Checks style, syntax, and other useful errors
-pylint==1.6.5
-
-# We'll use pytest to run our tests; this isn't really necessary to run the code, but it is to run
-# the tests.  With this here, you can run the tests with `py.test` from the base directory.
-pytest
-
-# Makes it so that pytest can handle the code structure we use, with src/main/python, and src/test.
-pytest-pythonpath
-
-# Allows generation of coverage reports with pytest.
-pytest-cov
-
-# Allows marking tests as flaky, to be rerun if they fail
-flaky
+Click==7.0
+feedparser==5.2.1
+Flask==1.1.1
+Flask-Testing==0.7.1
+itsdangerous==1.1.0
+Jinja2==2.10.3
+MarkupSafe==1.1.1
+pep8==1.7.1
+pycodestyle==2.5.0
+PyMySQL==0.9.3
+Werkzeug==0.16.0
