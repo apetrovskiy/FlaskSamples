@@ -510,3 +510,6 @@ pip-selfcheck.json
 .history
 
 # End of https://www.toptal.com/developers/gitignore/api/python,pydev,django,pycharm+all,intellij+all,visualstudiocode,code,virtualenv
+
+.fake
+.ionide
