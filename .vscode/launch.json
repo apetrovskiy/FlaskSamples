@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "type": "aws-sam",
+            "request": "direct-invoke",
+            "name": "python:DropByDrop.ch1_4_1.code1_4_1.hello_world (python3.9)",
+            "invokeTarget": {
+                "target": "code",
+                "projectRoot": "",
+                "lambdaHandler": "DropByDrop.ch1_4_1.code1_4_1.hello_world"
+            },
+            "lambda": {
+                "runtime": "python3.9",
+                "payload": {},
+                "environmentVariables": {}
+            }
+        }
+    ]
+}

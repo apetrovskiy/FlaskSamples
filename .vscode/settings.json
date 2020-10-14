@@ -5,9 +5,7 @@
     },
     "python.testing.unittestArgs": [
         "-v",
-        "-s",
-        ".",
-        "-p",
+        "-k",
         "test_*.py"
     ],
     "python.testing.pytestEnabled": false,
