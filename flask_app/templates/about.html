@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>About</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    {% if title %}
+        <title>Flask Tutorial -- {{ title }}</title>
+    {% else %}
+        <title>Flask Tutorial</title>
+    {% endif %}
+  </head>
+  <body>
+    <h1>About</h1>
+  </body>
 </html>
