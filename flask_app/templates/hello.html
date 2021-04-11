@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Title</title>
-</head>
-<body>
-<h1>Hello, World!</h1>
-</body>
+  </head>
+  <body>
+    {% for film in films %}
+    <h1>{{ film.title }}</h1>
+    <p>{{ film.id }}</p>
+    <p>{{ film.release_date }}</p>
+    {% endfor %}
+  </body>
 </html>
