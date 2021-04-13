@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.watcherExclude": {
+			"**/target": true
+		},
+		"python.testing.promptToConfigure": false,
+		"python.testing.nosetestsEnabled": true,
+		"python.testing.pytestEnabled": true,
+		"python.testing.unittestEnabled": true,
+		"python.testing.pytestArgs": [
+			"."
+		],
+		"python.testing.unittestArgs": [
+			"-v",
+			"-s",
+			".",
+			"-p",
+			"test_*.py"
+		],
+		"python.testing.nosetestArgs": [
+			"."
+		]
+	}
+}

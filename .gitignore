@@ -139,7 +139,7 @@ Pipfile.lock
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-*.code-workspace
+!*.code-workspace
 
 ### Django ###
 *.log
